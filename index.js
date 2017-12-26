@@ -15,10 +15,17 @@ import MainComponent from './TestRedux/MainComponent';
 import ListStore from './TodoListReduxDemo/Redux/store';
 import TodoListRedux from './TodoListReduxDemo/TodoList';
 
+import RouterDemo from './Router/MainRouter';
+
 // Provider 隐式将store传入整个组件中；
-ReactDom.render(
+/* ReactDom.render(
   <Provider store={ ListStore }>
     <TodoListRedux />
   </Provider>,
   document.getElementById('app'),
+); */
+
+ReactDom.render(
+  <RouterDemo />,
+  document.getElementById('app')
 );

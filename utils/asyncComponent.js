@@ -1,9 +1,8 @@
-import AsyncComponentFn from './AsyncComponentFn';
+import asyncComponent from './AsyncComponentFn'
 
-export default AsyncComponent = ( path ) => {
+
+export const AsyncComponent = (path) => {
   return (
-    AsyncComponentFn(
-      () => import(path)
-    )
+    asyncComponent(() => import('../Router/' + path))
   )
-}
+};

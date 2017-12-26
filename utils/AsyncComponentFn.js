@@ -1,6 +1,6 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 
-export default function asyncComponentFn(importComponent) {
+export default function asyncComponent(importComponent) {
 
   class AsyncComponent extends Component {
     constructor(props) {
@@ -9,19 +9,17 @@ export default function asyncComponentFn(importComponent) {
       this.state = {
         component: null
       };
-
       this.unmount = false;
-
     }
 
     componentWillUnmount() {
       this.unmount = true;
     }
 
-    async componentDidUnmount() {
-      const {default: component} = await importComponent()
+    async componentDidMount() {
+      const { default: component } = await importComponent();
 
-      if(this.unmount) return;
+      if (this.unmount) return;
 
       this.setState({
         component: component
@@ -30,8 +28,12 @@ export default function asyncComponentFn(importComponent) {
 
     render() {
       const C = this.state.component;
-      return C ? <C {...this.props} /> : null;
+
+      return C
+        ? <C {...this.props} />
+        : null;
     }
+
   }
 
   return AsyncComponent;

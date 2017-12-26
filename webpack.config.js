@@ -10,6 +10,9 @@ var config = {
     publicPath: '/dist/',
     filename: 'bundle.js' 
   },
+  devServer: {
+    historyApiFallback: true
+  },
   devtool: 'source-map',
   plugins:[],
   module: {
