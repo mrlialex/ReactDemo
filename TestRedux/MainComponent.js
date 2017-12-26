@@ -53,6 +53,8 @@ class MainComponent extends BasicComponent {
 }
 
 export default connect( (state) => {
+  console.log(state)
+  console.log(state.getIn(['fatherRedux']))
   return {
     result: state.getIn(['fatherRedux'])
   }
