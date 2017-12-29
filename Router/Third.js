@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import BasicComponent from '../utils/BasicComponent';
 
-class Home extends BasicComponent {
+class Third extends BasicComponent {
   constructor(props) {
     super(props);
 
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
-        <h1>我是首页君，嘿嘿</h1>
-        <p>{ this.props.match.url }</p>
+        <h1>我是动态ID</h1>
+        <p>{this.props.match.params.id}</p>
       </div>
     )
   }
 };
 
-export default Home;
+export default Third;

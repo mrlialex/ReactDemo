@@ -11,6 +11,7 @@ class Second extends BasicComponent {
     return (
       <div>
         <h1>我是组件2</h1>
+        <p>{this.props.match.url}</p>
       </div>
     )
   }
